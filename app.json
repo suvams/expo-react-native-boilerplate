@@ -1,25 +1,49 @@
 {
   "expo": {
-    "name": "Expo Boilerplate",
-    "slug": "expo-react-native-boilerplate",
+    "name": "NepalCanBlog",
+    "slug": "nepalcanblog",
+    "icon": "./assets/images/ncblogo.png",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "expoboilerplate",
+    "scheme": "nepalcanblog",
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.example.expoboilerplate",
+      "bundleIdentifier": "com.nepalcan.blog",
+      "associatedDomains": ["applinks:blog-ncc19.vercel.app"],
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/ncblogo.png",
         "backgroundColor": "#EDE9FE"
       },
-      "package": "com.example.expoboilerplate"
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "https",
+              "host": "blog-ncc19.vercel.app",
+              "pathPrefix": "/profile"
+            },
+            {
+              "scheme": "https",
+              "host": "blog-ncc19.vercel.app",
+              "pathPrefix": "/reset-password"
+            }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ],
+      "package": "com.nepalcan.blog",
+      "softwareKeyboardLayoutMode": "pan",
+      "androidStatusBar": {
+        "translucent": false
+      }
     },
     "web": {
       "bundler": "metro",
@@ -29,10 +53,17 @@
     "plugins": [
       "expo-router",
       [
+        "expo-image-picker",
+        {
+          "cameraPermission": "Allow NepalCanBlog to take photos for your blog.",
+          "photosPermission": "Allow the app to access your photos to choose a blog cover image."
+        }
+      ],
+      [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 160,
+          "image": "./assets/images/splashscreen.png",
+          "resizeMode": "cover",
           "backgroundColor": "#F9F9FF"
         }
       ]
@@ -43,14 +74,10 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "TODO-replace-with-eas-project-id"
-      }
+        "projectId": "7e18d7b1-6692-49a0-96f4-7bc809019a51"
+      },
+      "API_URL": "https://blog-gxe2.onrender.com/api"
     },
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
-    "updates": {
-      "url": "https://u.expo.dev/TODO-replace-with-eas-project-id"
-    }
+    "owner": "jyotinayak1s-team"
   }
 }
